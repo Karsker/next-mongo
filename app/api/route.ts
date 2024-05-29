@@ -1,6 +1,6 @@
 import clientPromise from "@/utils/mongodb"
 import { NextApiRequest, NextApiResponse } from "next";
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: Request) {
     try {
         const client = await clientPromise;
         const db = client.db("test");
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
         const db = client.db("test");
         const data = await req.json();
         const name = data.name;
-        const age = data.age;
+        const age = data.age;``
         const email = data.email;
         await db.collection("users").insertOne({
             name: name,
